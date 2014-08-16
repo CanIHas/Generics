@@ -1,0 +1,11 @@
+{
+    "params": [ "E" ],
+    "methods": [
+        {
+            "name": "add",
+            "args": ["java.lang.Object"],
+            "genericsIdxs": { "E": [0] },
+            "varargs": false
+        }
+    ]
+} 

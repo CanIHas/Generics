@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+version = '0.0.1-RESEARCH'
+
+repositories {
+    mavenCentral()
+}
+
+//jar {
+//    include "/META-INF/**/**"
+//}
+
+dependencies {
+
+    compile('org.codehaus.groovy:groovy-all:2.2.1')
+    compile project(':model')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

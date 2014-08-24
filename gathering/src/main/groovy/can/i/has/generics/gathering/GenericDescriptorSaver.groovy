@@ -1,6 +1,6 @@
-package can.i.has.has.generics.gathering
+package can.i.has.generics.gathering
 
-import can.i.has.has.generics.model.GenericClassDescriptor
+import can.i.has.generics.model.GenericClassDescriptor
 
 import groovy.json.JsonBuilder
 

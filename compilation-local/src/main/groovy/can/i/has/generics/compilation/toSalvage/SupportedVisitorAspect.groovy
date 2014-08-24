@@ -1,4 +1,4 @@
-package can.i.has.has.generics.compilation.toSalvage
+package can.i.has.generics.compilation.toSalvage
 
 import org.codehaus.groovy.ast.ASTNode
 import org.codehaus.groovy.ast.CodeVisitorSupport

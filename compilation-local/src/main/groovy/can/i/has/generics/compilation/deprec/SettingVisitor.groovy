@@ -1,6 +1,6 @@
-package can.i.has.has.generics.compilation.deprec
+package can.i.has.generics.compilation.deprec
 
-import can.i.has.has.generics.compilation.deprec.ASTInterceptor
+import can.i.has.generics.compilation.deprec.ASTInterceptor
 import org.codehaus.groovy.ast.CodeVisitorSupport
 import org.codehaus.groovy.ast.expr.CastExpression
 import org.codehaus.groovy.ast.expr.ConstructorCallExpression

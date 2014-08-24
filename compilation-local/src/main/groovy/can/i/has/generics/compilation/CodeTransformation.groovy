@@ -1,4 +1,4 @@
-package can.i.has.has.generics.compilation
+package can.i.has.generics.compilation
 
 import org.codehaus.groovy.ast.ASTNode
 

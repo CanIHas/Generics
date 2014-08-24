@@ -1,6 +1,6 @@
-package can.i.has.has.generics.compilation.toSalvage
+package can.i.has.generics.compilation.toSalvage
 
-import can.i.has.has.generics.compilation.deprec.ASTCategory
+import can.i.has.generics.compilation.deprec.ASTCategory
 import org.codehaus.groovy.ast.MethodNode
 import org.codehaus.groovy.ast.builder.AstBuilder
 import org.codehaus.groovy.ast.stmt.BlockStatement

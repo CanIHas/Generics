@@ -1,4 +1,4 @@
-package can.i.has.has.generics.compilation.deprec
+package can.i.has.generics.compilation.deprec
 
 import org.codehaus.groovy.ast.CodeVisitorSupport
 import org.codehaus.groovy.ast.expr.CastExpression

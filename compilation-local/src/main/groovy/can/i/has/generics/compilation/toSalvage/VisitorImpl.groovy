@@ -1,6 +1,6 @@
-package can.i.has.has.generics.compilation.toSalvage
+package can.i.has.generics.compilation.toSalvage
 
-import can.i.has.has.generics.runtime.GenericsRuntime
+import can.i.has.generics.runtime.GenericsRuntime
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.CodeVisitorSupport
 import org.codehaus.groovy.ast.GenericsType

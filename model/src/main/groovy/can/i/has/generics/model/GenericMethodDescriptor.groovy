@@ -1,4 +1,4 @@
-package can.i.has.has.generics.model
+package can.i.has.generics.model
 
 import groovy.transform.Canonical
 

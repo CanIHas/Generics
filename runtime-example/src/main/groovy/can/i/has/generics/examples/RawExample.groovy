@@ -1,6 +1,6 @@
-package can.i.has.has.generics.examples
+package can.i.has.generics.examples
 
-import can.i.has.has.generics.runtime.GenericsRuntime
+import can.i.has.generics.runtime.GenericsRuntime
 
 def listOfStrings = GenericsRuntime.makeMeGeneric(["a", "b", "c"], E: String)
 

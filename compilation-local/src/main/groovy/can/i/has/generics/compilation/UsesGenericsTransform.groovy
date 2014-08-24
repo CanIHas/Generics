@@ -1,4 +1,4 @@
-package can.i.has.has.generics.compilation
+package can.i.has.generics.compilation
 
 import org.codehaus.groovy.ast.ASTNode
 import org.codehaus.groovy.ast.AnnotationNode
@@ -10,7 +10,10 @@ import org.codehaus.groovy.control.SourceUnit
 import org.codehaus.groovy.transform.AbstractASTTransformation
 import org.codehaus.groovy.transform.GroovyASTTransformation
 
+import groovy.util.logging.Slf4j
+
 @GroovyASTTransformation(phase=CompilePhase.SEMANTIC_ANALYSIS)
+@Slf4j
 class UsesGenericsTransform extends AbstractASTTransformation {
 
     static final CodeTransformer transformer = new CodeTransformer(
@@ -21,7 +24,14 @@ class UsesGenericsTransform extends AbstractASTTransformation {
 
     static BlockStatement transformBlock(BlockStatement block){
         return new BlockStatement(block.statements.collect {
-            transformer.transform(it, CompilePhase.SEMANTIC_ANALYSIS)
+            log.debug "transforming $it"
+            log.debug "with text:"
+            log.debug it.text
+            def out = transformer.transform(it, CompilePhase.SEMANTIC_ANALYSIS);
+            log.debug "into $out"
+            log.debug "with text:"
+            log.debug out.text
+            out
         }, block.variableScope)
     }
 

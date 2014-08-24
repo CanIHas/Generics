@@ -1,10 +1,10 @@
-package can.i.has.has.generics.runtime
+package can.i.has.generics.runtime
 
-import can.i.has.has.generics.model.GenericMethodDescriptor
+import can.i.has.generics.model.GenericMethodDescriptor
 
 import groovy.json.JsonSlurper
 
-import can.i.has.has.generics.model.GenericClassDescriptor
+import can.i.has.generics.model.GenericClassDescriptor
 
 import java.lang.reflect.Method
 

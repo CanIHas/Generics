@@ -1,10 +1,11 @@
-package can.i.has.has.generics.compilation
+package can.i.has.generics.compilation
 
 
 class UsesGenericsTransformTest extends GroovyTestCase {
 
     void testConstructorExpressionOnMethod(){
-        def genericObject = new GroovyShell(ClassLoader.systemClassLoader).parse('''import can.i.has.generics.compilation.UsesGenerics
+        def genericObject = new GroovyShell(this.class.classLoader).parse('''package can.i.has.generics.compilation
+//import can.i.has.generics.compilation.UsesGenerics
 
 class Tested {
     @UsesGenerics
@@ -13,7 +14,7 @@ class Tested {
     }
 }
 new Tested()
-''').foo()
+''').run().foo()
         assert genericObject.genericTypes == [E: Object]
     }
 }

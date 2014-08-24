@@ -1,4 +1,4 @@
-package can.i.has.has.generics.compilation
+package can.i.has.generics.compilation
 
 import org.codehaus.groovy.ast.ASTNode
 import org.codehaus.groovy.ast.builder.AstBuilder
@@ -8,18 +8,25 @@ import org.codehaus.groovy.ast.stmt.Statement
 import org.codehaus.groovy.control.CompilePhase
 
 import groovy.transform.Canonical
+import groovy.util.logging.Slf4j
 
 @Canonical
+@Slf4j
 class CodeTransformer{
     CodeTransformation transformation
 
     private List<ASTStackFrame> stack = []
 
     synchronized ASTNode transform(ASTNode node, CompilePhase phase){
+        log.debug "transform($node)"
         assert stack.isEmpty()
         stack.add(new ASTStackFrame())
+        log.debug "should visit now"
         node.visit(new TransformingVisitor(phase))
-        return introduceChanges(node, stack.pop(), phase)
+        log.debug "just visited"
+        def out = introduceChanges(node, stack.pop(), phase)
+        log.debug "transform returned $out"
+        return out
     }
 
     @Canonical
@@ -28,12 +35,14 @@ class CodeTransformer{
 
         @Override
         void visitNode(ASTNode node) {
+            log.debug "TransformingVisitor#visitNode($node)"
             def frame = new ASTStackFrame(node)
             stack.add(frame)
             def transformed = transformation.transform(node, frame)
+            log.debug "TransformingVisitor#visitNode recursive? ${frame.recursive}"
+            frame.transformationResult = transformed
             if (!frame.recursive)
                 throwToBreakRecursion()
-            frame.transformationResult = transformed
         }
 
         @Override
@@ -47,21 +56,25 @@ class CodeTransformer{
     }
 
     protected static ASTNode introduceChanges(ASTNode node, ASTStackFrame context, CompilePhase phase){
+        log.debug "introducing changes to $node"
+        log.debug "in context: $context"
         if (context.replacements.empty)
             return node
         String txt = node.text
+        log.debug "text: $txt"
         context.replacements.each { ASTStackFrame.Pair<String, String> pair ->
+            log.debug "replacing: $pair / ${regexed(pair.first)}"
             txt = txt.replaceFirst(regexed(pair.first), pair.second)
         }
-        def out = new AstBuilder().buildFromString(phase, true, txt)
-        assert out.size() == 1
-        out = out[0]
-        if (node instanceof Expression) {
-            assert out instanceof ExpressionStatement
-            return out.expression
-        }
-        assert node instanceof Statement
-        assert out instanceof Statement
+        def out
+        if (node instanceof Expression)
+            out = ASTUtils.parseExpression(phase, txt)
+        else if (node instanceof Statement)
+            out = ASTUtils.parseStatement(phase, txt)
+        else assert false//todo: exception
+        log.debug "with result $out"
+        log.debug "with text:"
+        log.debug "${out.text}"
         return out
 
     }

@@ -1,6 +1,6 @@
-package can.i.has.has.generics.compilation.examples
+package can.i.has.generics.compilation.examples
 
-import can.i.has.has.generics.compilation.UsesGenerics
+import can.i.has.generics.compilation.UsesGenerics
 
 @UsesGenerics
 class Example1 {

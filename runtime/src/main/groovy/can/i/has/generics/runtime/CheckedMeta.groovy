@@ -1,4 +1,4 @@
-package can.i.has.has.generics.runtime
+package can.i.has.generics.runtime
 
 class CheckedMeta extends ProxyMetaClass{
 

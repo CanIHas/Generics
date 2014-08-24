@@ -12,7 +12,9 @@ class GenericDescriptorSaver {
     GenericDescriptorSaver(){
         batch = [:]
         Properties p = new Properties()
-        p.load(this.class.classLoader.getResourceAsStream("generics/config.properties"))
+        def stream = this.class.classLoader.getResourceAsStream("generics/config.properties")
+        if (stream)
+            p.load(stream)
         rootDir = new File(
             p.getProperty("generics.destination",
                 System.properties.getProperty("generics.destination",

@@ -1,6 +1,7 @@
-//include 'ast'
 include 'gathering'
 include 'model'
 include 'gathering-example'
 include 'runtime'
 include 'runtime-example'
+include 'compilation-local'
+include 'compilation-local-example'

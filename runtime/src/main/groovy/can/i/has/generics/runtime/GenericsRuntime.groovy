@@ -1,5 +1,6 @@
 package can.i.has.has.generics.runtime
 
+@Singleton
 class GenericsRuntime {
     static {
         Object.metaClass.genericTypes = [:]

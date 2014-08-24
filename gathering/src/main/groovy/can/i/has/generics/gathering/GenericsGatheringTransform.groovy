@@ -1,8 +1,7 @@
 package can.i.has.has.generics.gathering
 
-import can.i.has.has.generics.gathering.GenericClassDescriptor
-import can.i.has.has.generics.gathering.GenericDescriptorSaver
-import can.i.has.has.generics.gathering.GenericMethodDescriptor
+import can.i.has.has.generics.model.GenericClassDescriptor
+import can.i.has.has.generics.model.GenericMethodDescriptor
 import org.codehaus.groovy.ast.ASTNode
 import org.codehaus.groovy.ast.ClassNode
 import org.codehaus.groovy.ast.GenericsType

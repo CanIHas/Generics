@@ -1,9 +1,8 @@
-package can.i.has.generics.compilation
+package can.i.has.generics.compilation.deprec2
 
+import can.i.has.generics.compilation.ASTUtils
 import org.codehaus.groovy.ast.ASTNode
-import org.codehaus.groovy.ast.builder.AstBuilder
 import org.codehaus.groovy.ast.expr.Expression
-import org.codehaus.groovy.ast.stmt.ExpressionStatement
 import org.codehaus.groovy.ast.stmt.Statement
 import org.codehaus.groovy.control.CompilePhase
 
